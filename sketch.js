@@ -89,17 +89,12 @@ function barra(x, y) {
 }
 
 function moviment_barra_enemy() {
-  if (gamemode == "single") {
-    vel_enemy_y = bola_y - barra_enemy_y - barra_comprimento / 2 - 30
-    barra_enemy_y += ceil(vel_enemy_y / 10)
-  }
-  
   if (gamemode == "multi") {
     if (keyIsDown(87)) {
-      barra_enemy_y -= 5
+      barra_enemy_y -= 10
   }
     if (keyIsDown(83)) {
-      barra_enemy_y += 5
+      barra_enemy_y += 10
   }
   }
   
@@ -107,6 +102,10 @@ function moviment_barra_enemy() {
     gamemode = "multi"
   }
   
+  if (gamemode == "single") {
+    vel_enemy_y = bola_y - barra_enemy_y - barra_comprimento / 2 - 30
+    barra_enemy_y += ceil(vel_enemy_y / 10)
+  }
  }
 
 function collision2d(x, y) {
