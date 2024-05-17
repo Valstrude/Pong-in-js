@@ -31,15 +31,8 @@ let trilha
 // modo de jogo
 let gamemode = "single"
 
-function preload() {
-  ponto = loadSound("ponto.mp3")
-  trilha = loadSound("trilha.mp3")
-  raquetada = loadSound("raquetada.mp3")
-}
-
 function setup() {
   createCanvas(600, 400)
-  trilha.loop()
 }
 
 function draw() {
@@ -113,7 +106,6 @@ function collision2d(x, y) {
   let hit = collideRectCircle(x, y, barra_comprimento, barra_altura, bola_x, bola_y, bola_raio);
   if(hit) {
     vel_x *= -1;
-    raquetada.play()
   }
 }
 
@@ -138,12 +130,10 @@ function placar() {
   if (bola_x > 585) {
     meus_pontos += 1
     bola_x = 600 - 30
-    ponto.play()
   }
   // marca ponto pro oponente
   if (bola_x < 15) {
     pontos_oponente += 1
     bola_x = 30
-    ponto.play()
   }
 }
